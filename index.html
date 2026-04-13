@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社ピボットコア | 半導体・電子部品のBtoB調達ソリューション</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .page-transition { display: none; }
+        .page-transition.active { display: block; }
+        
+        /* ヒーローエリアの明るさを調整 */
+        .hero-gradient { 
+            background: linear-gradient(rgba(10, 18, 36, 0.55), rgba(10, 18, 36, 0.55)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        .accent-border { border-top: 4px solid #b91c1c; }
+        /* ナビゲーション等のアクセントに使用 */
+        .nav-link::after { content: ''; display: block; width: 0; height: 2px; background: #b91c1c; transition: width .3s; }
+        .nav-link:hover::after { width: 100%; }
+        .text-shadow-lg { text-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+    </style>
+</head>
+<body class="bg-white text-slate-900 leading-relaxed">
+
+    <!-- ヘッダー -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex flex-col lg:flex-row justify-between items-center">
+            <div class="flex flex-col items-start mb-4 lg:mb-0 cursor-pointer" onclick="showPage('top')">
+    
+                <!-- ロゴ -->
+                <img src="pivotcore_logo.png" alt="PivotCoreロゴ" class="h-10 md:h-12 object-contain">
+    
+                <!-- 会社名 -->
+                <p class="text-[10px] md:text-xs font-bold text-slate-500 tracking-[0.1em] mt-1 ml-2">
+                    株式会社ピボットコア
+                </p>
+            </div>
+            <nav class="flex items-center space-x-8">
+                <ul class="flex space-x-8 text-sm font-bold text-slate-700">
+                    <li><a href="#" onclick="showPage('top')" class="nav-link hover:text-[#163A8D] transition">ホーム</a></li>
+                    <li><a href="#" onclick="showPage('business')" class="nav-link hover:text-[#163A8D] transition">事業内容</a></li>
+                    <li><a href="#" onclick="showPage('rfq')" class="nav-link hover:text-[#163A8D] transition text-[#163A8D]">見積依頼 (RFQ)</a></li>
+                </ul>
+                <div class="hidden md:block">
+                    <a href="tel:050-6863-4302" class="flex items-center text-[#163A8D] font-bold">
+                        <i class="fas fa-phone-alt mr-2 text-red-700"></i>
+                        <span>050-6863-4302</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- TOPページ -->
+        <section id="top" class="page-transition active">
+            <!-- ヒーローセクション -->
+            <div class="hero-gradient text-white py-32 md:py-48">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-3xl">
+                        <span class="inline-block bg-red-700 text-white text-xs font-bold px-3 py-1 mb-4">国内外ネットワークを活用した専門調達支援</span>
+                        <!-- ▼ここから差し替え（3階層構成） -->
+                        <h2 class="text-4xl md:text-6xl font-bold mb-4 leading-tight italic text-shadow-lg">
+                          半導体・電子部品のスポット調達専門商社
+                        </h2>
+
+                        <p class="text-xl md:text-3xl font-bold mb-6 leading-snug opacity-95 text-shadow-lg">
+                          必要な部品を、必要なタイミングで。
+                        </p>
+
+                        <p class="text-base md:text-lg mb-8 opacity-90 leading-loose font-medium">
+                          半導体・電子部品専門のBtoB商社として、独自のグローバルネットワークで製造ラインを支えます。
+                        </p>
+                        <!-- ▲ここまで差し替え -->
+
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="showPage('rfq')" class="bg-red-700 hover:bg-red-800 text-white px-10 py-4 font-bold transition flex items-center shadow-lg">
+                                見積を依頼する <i class="fas fa-chevron-right ml-3"></i>
+                            </button>
+                            <button onclick="showPage('business')" class="bg-white hover:bg-slate-100 text-[#163A8D] px-10 py-4 font-bold transition shadow-lg">
+                                当社のサービス
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ニュース -->
+            <div class="bg-slate-50 border-b">
+                <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row items-start md:items-center">
+                    <span class="font-bold text-[15px] mr-8 text-[#163A8D] flex items-center shrink-0">
+                        <i class="fas fa-info-circle mr-2"></i> お知らせ / トピックス
+                    </span>
+                    <div class="text-[15px] flex flex-col md:flex-row gap-2 md:gap-8 mt-2 md:mt-0">
+                        <span class="text-slate-500 italic">2026.3.20</span>
+                        <a href="#" onclick="showPage('news-yitoa')"
+                        class="hover:text-red-700 underline underline-offset-4">
+                        サイト公開のお知らせ
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- イントロダクション -->
+            <div class="container mx-auto px-6 py-20">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#163A8D] mb-8 relative">
+                            半導体不足・EOL品への<br>迅速なソリューション
+                            <span class="absolute -bottom-3 left-0 w-20 h-1 bg-red-700"></span>
+                        </h3>
+                        <p class="text-slate-700 mb-6 text-lg leading-loose">
+                            当社は、世界的な供給不足、EOL（生産終了品）、短納期案件に対し、個別案件ごとに調達可否を調査します。正規品ルートを最優先し、安全かつ迅速に見積回答を行います。
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start font-bold text-slate-800">
+                                <i class="fas fa-check text-red-700 mr-3 mt-1"></i>
+                                原則24時間以内に一次回答<br>
+                                （正式見積は内容により3〜4営業日）
+                            </li>
+                            <li class="flex items-center font-bold text-slate-800"><i class="fas fa-check text-red-700 mr-3"></i> 国内外の正規・提携サプライヤー100社以上</li>
+                            <li class="flex items-center font-bold text-slate-800"><i class="fas fa-check text-red-700 mr-3"></i> 代替品（クロスリファレンス）の技術提案</li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=600" alt="半導体" class="rounded-sm shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600" alt="ロジスティクス" class="rounded-sm shadow-lg mt-20">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 事業内容 -->
+            <div class="bg-slate-100 py-20">
+                <div class="container mx-auto px-6">
+                    <h3 class="text-center text-3xl font-bold mb-12 text-[#163A8D] uppercase tracking-widest italic">事業内容</h3>
+                  
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 accent-border shadow-sm">
+                            <div class="text-red-700 text-3xl mb-4"><i class="fas fa-microchip"></i></div>
+                            <h4 class="text-xl font-bold mb-4 text-[#163A8D] italic">半導体・電子部品調達事業</h4>
+                            <p class="text-[15px] text-slate-600 leading-relaxed text-left">
+                                マイコンやメモリ、受動部品、コネクタ等、幅広く取り扱っています。独立系商社の強みを活かし、国内外の正規代理店や提携サプライヤーから、最適な供給ルートを選択してご提案します。
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-8 accent-border shadow-sm">
+                            <div class="text-red-700 text-3xl mb-4"><i class="fas fa-search-plus"></i></div>
+                            <h4 class="text-xl font-bold mb-4 text-[#163A8D] italic">二次卸（スポット調達）</h4>
+                            <p class="text-[15px] text-slate-600 leading-relaxed text-left">
+                                MOQ制限、納期逼迫案件、EOL再調達などの課題に対し、国内外ネットワークを活用し市場在庫を確保。緊急ニーズにも柔軟に対応します。
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-8 accent-border shadow-sm">
+                            <div class="text-red-700 text-3xl mb-4"><i class="fas fa-handshake"></i></div>
+                            <h4 class="text-xl font-bold mb-4 text-[#163A8D] italic">生産継続を支える供給体制</h4>
+                            <p class="text-[15px] text-slate-600 leading-relaxed text-left">
+                                試作から量産まで規模を問わず対応。分納相談や仕様に基づく代替品提案など、調達担当者様のパートナーとしてスムーズな購買フローを支えます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-100 py-20">
+                </div>
+
+            <div class="bg-white py-20">
+                <div class="container mx-auto px-6">
+                    <h3 class="text-center text-3xl font-bold mb-12 text-[#163A8D] uppercase tracking-widest italic">当社の強み</h3>
+                    <div class="grid md:grid-cols-3 gap-12">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="mb-6 text-red-700 text-5xl">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-4 text-[#163A8D]">1. 徹底した国内・グローバル調達</h4>
+                            <p class="text-[15px] text-slate-600 leading-relaxed text-left">
+                                国内主要商社に加え、海外の独立系ディストリビューターとも強固に連携。国内で枯渇した部品も、世界中の在庫からリアルタイムで探索し、正規品ルートを優先した確実な調達を実現します。
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="mb-6 text-red-700 text-5xl">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-4 text-[#163A8D]">2. 深刻な「EOL」への対応力</h4>
+                            <p class="text-[15px] text-slate-600 leading-relaxed text-left">
+                                産業機器等の保守に不可欠な廃止品（EOL）の捜索に注力。市場在庫の確保だけでなく、互換性のある代替品（クロスリファレンス）の調査・提案も行い、購買担当者様の「最後の砦」として貢献します。
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="mb-6 text-red-700 text-5xl">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-4 text-[#163A8D]">3. スピード重視の短納期・迅速回答</h4>
+                            <p class="text-[15px] text-slate-600 leading-loose text-left">
+                                見積依頼（RFQ）には原則24時間以内に一次回答（正式回答は内容により3～4営業日いただく場合がございます）。小回りの利く組織体勢を活かした柔軟な対応で、製造ラインの停止リスクに寄り添います。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 py-20">
+
+            <!-- 会社概要 -->
+            <div class="container mx-auto px-6 py-20">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-8 text-[#163A8D] border-l-4 border-red-700 pl-4 uppercase tracking-widest italic">会社概要</h3>
+                    <div class="border rounded-sm overflow-hidden shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-4 border-b bg-slate-50">
+                            <div class="p-4 font-bold text-[15px] text-slate-500">会社名</div>
+                            <div class="p-4 text-[15px] md:col-span-3 bg-white">株式会社ピボットコア (PivotCore inc.)</div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 border-b bg-slate-50">
+                            <div class="p-4 font-bold text-[15px] text-slate-500">代表者</div>
+                            <div class="p-4 text-[15px] md:col-span-3 bg-white">永山 俊和</div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 border-b bg-slate-50">
+                            <div class="p-4 font-bold text-[15px] text-slate-500">所在地</div>
+                            <div class="p-4 text-[15px] md:col-span-3 bg-white">〒160-0023 東京都新宿区西新宿3-3-13 西新宿水間ビル6F</div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 border-b bg-slate-50">
+                            <div class="p-4 font-bold text-[15px] text-slate-500">事業内容</div>
+                            <div class="p-4 text-[15px] md:col-span-3 bg-white">半導体および電子部品の調達販売、二次卸</div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 bg-slate-50">
+                            <div class="p-4 font-bold text-[15px] text-slate-500">連絡先</div>
+                            <div class="p-4 text-[15px] md:col-span-3 bg-white">
+                                <p>TEL: <a href="tel:050-6863-4302" class="hover:underline text-[#163A8D]">050-6863-4302</a></p>
+                                <p class="text-[#163A8D]">Email: <a href="mailto:info@pivotcore.jp" class="hover:underline">info@pivotcore.jp</a></p>
+                                <p class="mt-2 text-slate-600">営業時間：9：00～17：30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- お知らせ詳細ページ -->
+        <section id="news-yitoa" class="page-transition">
+            <!-- ヘッダー -->
+            <div class="bg-[#163A8D] py-16 text-white">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <div class="text-[15px] opacity-80 mb-2">リリース</div>
+                    <h2 class="text-3xl font-bold leading-tight">
+                        サイト公開のお知らせ
+                    </h2>
+                    <div class="text-[15px] opacity-80 mt-2">2026.3.20</div>
+                </div>
+            </div>
+
+            <!-- 本文 -->
+            <div class="container mx-auto px-6 py-16 max-w-4xl">
+                <div class="bg-white border shadow-sm p-8 space-y-6">
+
+                    <p class="text-slate-700 leading-loose">
+                        拝啓<br>
+                    </p>
+                        時下ますますご清栄のこととお慶び申し上げます。平素は格別のご高配を賜り、厚く御礼申し上げます。<br>
+                        この度、弊社ではかねてより準備を進めてまいりました公式Webサイトを公開いたしました。
+                    </p>
+
+                    <p class="text-slate-700 leading-loose">
+                        本サイトでは、弊社の強みである世界各国の供給ネットワークを活かしたスポット調達サービスをはじめ、<br>
+                        最新の在庫状況や市場動向などの情報をタイムリーに発信してまいります。
+                    </p>
+
+                    <p class="text-slate-700 leading-loose">
+                        急な設計変更や欠品、生産終了品（EOL）の確保など、お客様の「困った」を迅速に解決するパートナー<br>
+                        として、より一層のサービス向上に努めてまいる所存です。
+                    </p>
+
+                    <p class="text-slate-700 leading-loose">
+                        今後とも、変わらぬご愛顧を賜りますようお願い申し上げます。
+                    </p>
+
+                    <p class="text-slate-700 leading-loose mt-10 text-right">
+                        敬具
+                    </p>
+
+
+
+                </div>
+
+                <!-- ホームへ戻るボタン -->
+                <div class="text-center mt-12">
+                    <button onclick="showPage('top')"
+                        class="inline-block border-2 border-[#163A8D] text-[#163A8D] font-semibold px-8 py-3 rounded-sm hover:bg-[#163A8D] hover:text-white transition">
+                        ホームへ戻る
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 事業内容ページ -->
+        <section id="business" class="page-transition">
+            <div class="bg-[#163A8D] py-24 text-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold italic mb-4 uppercase">事業内容</h2>
+                    <p class="text-lg opacity-80">半導体・電子部品の調達販売／二次卸。品質とトレーサビリティを重視し、スポット案件から継続取引まで対応します。</p>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 py-20 max-w-5xl">
+
+                <!-- 概要 -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-[#163A8D] flex items-center">
+                        <i class="fas fa-shield-alt text-red-700 mr-3"></i> 信頼・品質を軸にした調達支援
+                    </h3>
+                    <p class="text-slate-700 leading-loose">
+                        当社は、最先端製品から入手困難なレガシー部品まで、半導体・電子部品を幅広く取り扱う独立系商社です。
+                        正規品ルートを優先しつつ、国内外のネットワークを活用。入手困難品や短納期案件にも柔軟に対応します。
+                    </p>
+                </div>
+
+                <!-- 取扱ジャンル（画像付き：半導体／電子部品／EOL） -->
+                <div class="mb-20">
+                    <h3 class="text-2xl font-bold mb-10 text-[#163A8D] flex items-center">
+                        <i class="fas fa-layer-group text-red-700 mr-3"></i> 取扱ジャンル
+                    </h3>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white border rounded-sm shadow-sm overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" alt="半導体（ICチップ）" class="w-full h-44 object-cover">
+                            <div class="p-6">
+                                <h4 class="font-bold text-lg text-[#163A8D]">半導体 <span class="text-[15px] text-slate-500 italic">Semiconductors</span></h4>
+                                <p class="text-base text-slate-600 mt-3 leading-relaxed">
+                                    MCU、メモリ、ロジックIC、アナログIC、パワー半導体、オプトデバイスなどに対応。車載・産業機器・通信機器向け等、用途に合わせて提案します。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white border rounded-sm shadow-sm overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1620283085439-39620a1e21c4?auto=format&fit=crop&q=80&w=1200" alt="電子部品（基板と部品）" class="w-full h-44 object-cover">
+                            <div class="p-6">
+                                <h4 class="font-bold text-lg text-[#163A8D]">電子部品 <span class="text-[15px] text-slate-500 italic">Electronic Components</span></h4>
+                                <p class="text-base text-slate-600 mt-3 leading-relaxed">
+                                    受動部品（MLCC/抵抗/インダクタ等）からコネクタ、リレー、スイッチ、水晶デバイスまで幅広くカバーします。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white border rounded-sm shadow-sm overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=1200" alt="EOL品・廃止品" class="w-full h-44 object-cover">
+                            <div class="p-6">
+                                <h4 class="font-bold text-lg text-[#163A8D]">EOL品・廃止品 <span class="text-[15px] text-slate-500 italic">End of Life</span></h4>
+                                <p class="text-base text-slate-600 mt-3 leading-relaxed">
+                                    生産終了品の調達は得意領域の一つです。世界のセカンダリマーケットや提携先のデッドストックから探索します。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 提供サービス -->
+                <div class="mb-20">
+                    <h3 class="text-2xl font-bold mb-10 text-[#163A8D] flex items-center">
+                        <i class="fas fa-cog text-red-700 mr-3"></i> 提供サービス
+                    </h3>
+
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="bg-slate-50 p-8 border rounded-sm">
+                            <div class="w-24 h-24 bg-[#163A8D] text-white flex items-center justify-center rounded-full mx-auto mb-6">
+                                <i class="fas fa-truck-loading text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-[#163A8D] mb-4">調達代行</h4>
+                            <p class="text-base text-slate-600 leading-loose text-left">
+                                海外ベンダー照会や輸入を代行。小ロットから柔軟に対応します。MOQ制限への対応も、独自交渉により必要数のみ確保可能。お客様の調達工数削減と最適化を支援します。
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 p-8 border rounded-sm">
+                            <div class="w-24 h-24 bg-[#163A8D] text-white flex items-center justify-center rounded-full mx-auto mb-6">
+                                <i class="fas fa-globe-americas text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-[#163A8D] mb-4">在庫探索</h4>
+                            <p class="text-base text-slate-600 leading-loose text-left">
+                                国内欠品時も、欧米・アジアの提携網を駆使。納期逼迫案件への緊急対応に特化し、世界中から最短納期で在庫を確保します。深刻なライン停止リスクをプロの探索力で解消します。
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 p-8 border rounded-sm">
+                            <div class="w-24 h-24 bg-[#163A8D] text-white flex items-center justify-center rounded-full mx-auto mb-6">
+                                <i class="fas fa-lightbulb text-3xl"></i>
+                            </div>
+                            <h4 class="font-bold text-[#163A8D] mb-4">代替品提案</h4>
+                            <p class="text-base text-slate-600 leading-loose text-left">
+                                EOL品の再調達／クロス提案を強化。クロスリファレンスを精査し、ピン互換品や同等仕様品を提案。廃止品による生産停止を回避し、継続的な製品供給を強力に支援します。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 取引フロー -->
+                <div class="mb-20">
+                    <h3 class="text-2xl font-bold mb-10 text-[#163A8D] flex items-center">
+                        <i class="fas fa-route text-red-700 mr-3"></i> 取引フロー
+                    </h3>
+
+                    <div class="flex flex-col md:flex-row items-stretch justify-between gap-4">
+        
+                        <div class="bg-white border rounded-sm p-6 w-full md:w-1/3 shadow-sm">
+                            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Step 1</div>
+                            <div class="text-lg font-bold text-[#163A8D] mt-2">RFQ（見積依頼）</div>
+                            <p class="text-base text-slate-600 mt-3 leading-relaxed">型番・数量・希望納期をお知らせください（フォーム／メール）。</p>
+                        </div>
+
+                        <div class="text-red-700 text-2xl py-2 md:py-0 md:flex md:items-center md:justify-center">
+                            <i class="fas fa-chevron-right hidden md:block"></i>
+                            <i class="fas fa-chevron-down md:hidden"></i>
+                        </div>
+
+                        <div class="bg-white border rounded-sm p-6 w-full md:w-1/3 shadow-sm">
+                            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Step 2</div>
+                            <div class="text-lg font-bold text-[#163A8D] mt-2">回答</div>
+                            <p class="text-base text-slate-600 mt-3 leading-relaxed">原則24時間以内に一次回答<br>（正式回答は内容により3〜4営業日）</p>
+                        </div>
+
+                        <div class="text-red-700 text-2xl py-2 md:py-0 md:flex md:items-center md:justify-center">
+                            <i class="fas fa-chevron-right hidden md:block"></i>
+                            <i class="fas fa-chevron-down md:hidden"></i>
+                        </div>
+
+                        <div class="bg-white border rounded-sm p-6 w-full md:w-1/3 shadow-sm">
+                            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Step 3</div>
+                            <div class="text-lg font-bold text-[#163A8D] mt-2">納品</div>
+                            <p class="text-base text-slate-600 mt-3 leading-relaxed">ご発注確定後、必要に応じて検品を行い指定先へ発送します。</p>
+                        </div>
+
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-8 leading-relaxed">
+                        ※初回取引時は与信確認のため、前払いまたは代金引換をお願いする場合がございます。
+                    </p>
+                </div>
+
+                <!-- ナビゲーション -->
+                <div class="flex justify-center space-x-6">
+                    <button onclick="showPage('rfq')" class="bg-red-700 text-white px-10 py-4 font-bold hover:bg-red-800 shadow-md">RFQフォームへ</button>
+                    <button onclick="showPage('top')" class="border-2 border-[#163A8D] text-[#163A8D] px-10 py-4 font-bold hover:bg-blue-50">ホームへ戻る</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RFQ（見積依頼）ページ -->
+        <section id="rfq" class="page-transition">
+            <div class="bg-slate-100 py-20">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <div class="bg-white shadow-xl overflow-hidden border">
+                        <div class="bg-[#163A8D] text-white p-10">
+                            <h2 class="text-3xl font-bold mb-4 italic">見積依頼 (Request for Quotation)</h2>
+                            <p class="text-[15px] opacity-80 leading-relaxed">
+                                以下のフォームに必要事項をご入力ください。原則24時間以内に一次回答（受付・確認中のご連絡）をいたします。正式回答は内容により3～4営業日いただく場合がございます。
+                            </p>
+                        </div>
+
+                        <div class="p-10">
+                            <!-- RFQフォーム -->
+                            <form id="rfq-form" class="space-y-8" action="https://formsubmit.co/ba52e14cbdb5e64bfd60081d8e8d2408" method="POST">
+
+                                <div class="flex justify-end">
+                                            <p class="text-[12px] text-slate-500 mb-2">
+                                                <span class="text-red-700">*</span> は必須項目です
+                                            </p>
+                                        </div>
+
+                                <input type="hidden" name="_subject" value="【見積依頼】新しい問い合わせがありました">
+                                <input type="hidden" name="_autoresponse" value="この度は、見積依頼をいただき誠にありがとうございます。原則24時間以内に在庫状況・価格・納期をご返信いたします。お急ぎの場合は、050-6863-4302までご連絡ください。">
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">会社名 <span class="text-red-700">*</span></label>
+                                        <input type="text" name="会社名" required class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50" placeholder="株式会社〇〇">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">担当者名 <span class="text-red-700">*</span></label>
+                                        <input type="text" name="担当者名" required class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50" placeholder="山田 太郎">
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">メールアドレス <span class="text-red-700">*</span></label>
+                                        <input type="email" name="email" required class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50" placeholder="email@example.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">
+                                            電話番号 <span class="text-red-700">*</span>
+                                        </label>
+                                        <input 
+                                            type="tel" 
+                                            name="電話番号" 
+                                            required 
+                                            class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50" 
+                                            placeholder="03-0000-0000">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">型番 <span class="text-red-700">*</span></label>
+                                    <textarea name="型番" required rows="3" class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50" placeholder="型番をご記入ください（複数可・改行またはカンマ区切り）【例：TK8A60XXX】"></textarea>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">数量 <span class="text-red-700">*</span></label>
+                                        <input
+                                          type="text"
+                                          name="数量"
+                                          required
+                                          autocomplete="off"
+                                          class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50"
+                                          placeholder="例: 100(pcs)"
+                                        >
+                                        <p class="text-xs text-gray-500 mt-1">
+                                        ※複数型番で数量が異なる場合は、備考欄に型番ごとの数量をご記載ください。
+                                        </p>
+
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">
+                                            希望納期
+                                        </label>
+                                        <input 
+                                            type="date" 
+                                            name="希望納期"
+                                            class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50"
+                                        >
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">備考</label>
+                                    <textarea name="備考内容" rows="4" class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50" placeholder="代替品の可否、分納の希望など"></textarea>
+                                </div>
+
+                                <div class="bg-slate-50 p-6 border-l-4 border-slate-300 space-y-3">
+                                    <div class="text-[11px] text-[#163A8D] font-bold uppercase tracking-wider">当社の調達方針</div>
+                                    <ul class="text-[10px] text-slate-600 list-disc list-inside space-y-1">
+                                        <li>正規品ルートを優先し、模倣品の混入を防止します</li>
+                                        <li>品質とトレーサビリティ（追跡可能性）を重視します</li>
+                                        <li>必要に応じて外部機関による検品・品質テストを実施します</li>
+                                    </ul>
+                                    <p class="text-[10px] text-slate-400 italic pt-2">
+                                        ※入力された個人情報は見積回答の目的のみに使用します。自動受付メールが届かない場合は、迷惑メールフォルダをご確認いただくか、直接お電話にてお問い合わせください。
+                                    </p>
+                                </div>
+
+                                <!-- 個人情報保護方針 同意（必須） -->
+                                <div class="text-center mt-6">
+                                    <label class="inline-flex items-center justify-center gap-2 text-[15px] font-medium text-slate-700">
+                                        <input 
+                                            type="checkbox" 
+                                            id="privacy-consent" 
+                                            name="privacy_consent"
+                                            required
+                                            class="h-4 w-4"
+                                        >
+                                        <span>
+                                            <a href="#" onclick="showPage('privacy')" class="text-[#163A8D] underline hover:text-red-700">
+                                                個人情報保護方針
+                                            </a>
+                                            を確認のうえ同意します <span class="text-red-700">*</span>
+                                        </span>
+                                    </label>
+
+                                    <p class="text-xs text-slate-500 mt-3">
+                                        ※送信後、自動受付メールが届きます。届かない場合は迷惑メールフォルダをご確認ください。
+                                    </p>
+                                </div>
+
+
+                                <div id="error-msg" class="hidden bg-red-50 text-red-700 p-4 text-sm font-bold border border-red-200 rounded">
+                                    送信に失敗しました。時間をおいて再度お試しいただくか、お電話にてご連絡ください。
+                                </div>
+
+                                <button type="submit" id="submit-btn" class="w-full bg-red-700 text-white py-5 font-bold text-lg hover:bg-red-800 transition shadow-lg flex justify-center items-center rounded">
+                                    <span>見積依頼を送信する</span>
+                                </button>
+                            </form>
+
+                            <!-- 送信成功時のメッセージ -->
+                            <div id="success-msg" class="hidden text-center py-20">
+                                <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <i class="fas fa-check text-3xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-[#163A8D] mb-4">送信が完了しました。</h3>
+                                <p class="text-slate-600 mb-8 italic">ご依頼ありがとうございます。担当者より原則24時間以内に一次回答（受付・確認中のご連絡）をいたします。</p>
+                                <button onclick="backToForm()" class="bg-[#163A8D] text-white px-8 py-3 font-bold rounded">フォームに戻る</button>
+                                 
+                                 <!-- 前回入力を残す（チェック時はフォーム復帰で復元） -->
+                                 <div class="mt-4 flex items-center justify-center gap-2 text-slate-600">
+                                     <input type="checkbox" id="keep-input" class="h-4 w-4">
+                                     <label for="keep-input" class="text-[15px] cursor-pointer">前回の入力を残す</label>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 text-center">
+                        <button onclick="showPage('top')" class="text-sm font-bold text-slate-500 hover:text-[#163A8D] transition">
+                            <i class="fas fa-arrow-left mr-2"></i> ホームへ戻る
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 個人情報保護方針ページ -->
+        <section id="privacy" class="page-transition">
+            <div class="bg-[#163A8D] py-16 text-white text-center">
+                <h2 class="text-3xl font-bold">個人情報保護方針（プライバシーポリシー）</h2>
+                <p class="opacity-80 mt-2 italic">Privacy Policy</p>
+            </div>
+
+            <div class="container mx-auto px-6 py-16 max-w-4xl text-slate-700">
+                <div class="bg-white p-8 md:p-12 border shadow-sm space-y-8">
+
+                    <p class="text-[15px] leading-relaxed">
+                        株式会社ピボットコア（以下「当社」といいます。）は、
+                        半導体・電子部品の調達販売および関連サービスを提供するにあたり、
+                        個人情報の重要性を認識し、以下の方針に基づき適切な取得・利用・管理を行います。
+                    </p>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-[#163A8D] mb-3 border-b pb-1">
+                            1．取得する個人情報の項目
+                        </h3>
+                        <p class="text-[15px] leading-relaxed">
+                            当社は、主に以下の個人情報を取得することがあります。                            
+                        </p>
+                        <ul class="list-disc list-inside text-[15px] mt-2 space-y-0">
+                            <li>会社名</li>
+                            <li>部署名</li>
+                            <li>担当者氏名</li>
+                            <li>メールアドレス</li>
+                            <li>電話番号</li>
+                            <li>見積依頼内容（型番・数量・納期等の情報）</li>
+                            <li>お問い合わせ内容</li>
+                            <li>その他、当社サービス提供に関連してご提供いただく情報</li>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-[#163A8D] mb-3 border-b pb-1">
+                            2．個人情報の利用目的
+                        </h3>
+                        <p class="text-[15px] leading-relaxed">
+                            当社は、取得した個人情報を以下の目的の範囲内で利用いたします。
+                        </p>
+                        <ul class="list-decimal list-inside text-[15px] mt-2 space-y-1">
+                            <li>見積依頼への回答および関連するご連絡</li>
+                            <li>受発注業務、納品、請求・支払等の取引管理</li>
+                            <li>在庫確認・仕入先照会等の業務遂行</li>
+                            <li>代替品提案等の技術的提案</li>
+                            <li>アフターサービスおよびサポート対応</li>
+                            <li>当社サービスに関する情報提供</li>
+                            <li>法令に基づく対応</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-[#163A8D] mb-3 border-b pb-1">
+                            3．第三者提供について
+                        </h3>
+                        <p class="text-[15px] leading-relaxed">
+                            当社は、以下の場合を除き、
+                            取得した個人情報を第三者へ提供いたしません。
+                        </p>
+                        <ul class="list-disc list-inside text-[15px] mt-2 space-y-1">
+                            <li>本人の同意がある場合</li>
+                            <li>法令に基づく場合</li>
+                            <li>業務遂行のために必要な範囲で、仕入先・物流会社・業務委託先等へ提供する場合（この場合、適切な管理を行います）</li>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-[#163A8D] mb-3 border-b pb-1">
+                            4．安全管理措置
+                        </h3>
+                        <p class="text-[15px] leading-relaxed">
+                            当社は、個人情報への不正アクセス、紛失、漏えい、改ざん等を防止するため、
+                            合理的な安全管理措置を講じます。<br>
+                            また、個人情報を取り扱う従業者に対し、適切な監督および教育を行います。
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-[#163A8D] mb-3 border-b pb-1">
+                            5．保存期間
+                        </h3>
+                        <p class="text-[15px] leading-relaxed">
+                            当社は、個人情報を利用目的の達成に必要な期間、または法令に基づき必要とされる期間に限り保管し、
+                            不要となった場合は適切な方法で廃棄・削除いたします。
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-[#163A8D] mb-3 border-b pb-1">
+                            6．開示・訂正・削除等の請求
+                        </h3>
+                        <p class="text-[15px] leading-relaxed">
+                            ご本人より、自己の個人情報について開示・訂正・削除等のご請求があった場合には、
+                            本人確認のうえ、法令に従い適切に対応いたします。
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-[#163A8D] mb-3 border-b pb-1">
+                            7．法令遵守および見直し
+                        </h3>
+                        <p class="text-[15px] leading-relaxed">
+                            当社は、個人情報に関する法令およびその他の規範を遵守するとともに、
+                            本方針の内容を適宜見直し、継続的な改善に努めます。
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-[#163A8D] mb-3 border-b pb-1">
+                            8．お問い合わせ窓口
+                        </h3>
+                        <p class="text-[15px] leading-relaxed">
+                            個人情報の取扱いに関するお問い合わせは、下記までご連絡ください。<br>
+                            株式会社ピボットコア<br>
+                            〒160-0023 東京都新宿区西新宿3-3-13 西新宿水間ビル6F<br>
+                            <p>TEL: <a href="tel:050-6863-4302" class="hover:underline text-[#163A8D]">050-6863-4302</a></p>
+                                <p class="text-[#163A8D]">Email: <a href="mailto:info@pivotcore.jp" class="hover:underline">info@pivotcore.jp</a></p>
+
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-[15px] leading-relaxed">
+                            制定日：2026年2月21日<br>
+                            最終改定日：2026年2月21日<br>
+                        </p>
+                    </div>
+
+
+                </div>
+
+                <div class="mt-12 text-center">
+                    <button onclick="showPage('top')"
+                        class="text-sm font-bold text-slate-500 hover:text-[#163A8D] transition">
+                        <i class="fas fa-arrow-left mr-2"></i> ホームへ戻る
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- サイトマップページ -->
+        <section id="sitemap" class="page-transition">
+          <div class="bg-[#163A8D] py-16 text-white text-center">
+            <h2 class="text-3xl font-bold">サイトマップ</h2>
+            <p class="opacity-80 mt-2 italic">Site Map</p>
+          </div>
+
+          <div class="container mx-auto px-6 py-16 max-w-4xl text-slate-700">
+            <div class="bg-white p-8 md:p-12 border shadow-sm space-y-8">
+
+              <div>
+                <h3 class="font-bold text-lg text-[#163A8D] mb-4 border-b pb-2">ページ一覧</h3>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                  <button onclick="showPage('top')" class="w-full text-left bg-slate-50 hover:bg-slate-100 border rounded-sm p-4 transition">
+                    <div class="font-bold text-[#163A8D]">ホーム</div>
+                    <div class="text-[15px] text-slate-500 mt-1">TOPページ</div>
+                  </button>
+
+                  <button onclick="showPage('business')" class="w-full text-left bg-slate-50 hover:bg-slate-100 border rounded-sm p-4 transition">
+                    <div class="font-bold text-[#163A8D]">事業内容</div>
+                    <div class="text-[15px] text-slate-500 mt-1">事業内容・取扱ジャンル・提供サービス・取引フロー</div>
+                  </button>
+
+                  <button onclick="showPage('rfq')" class="w-full text-left bg-slate-50 hover:bg-slate-100 border rounded-sm p-4 transition">
+                    <div class="font-bold text-[#163A8D]">見積依頼（RFQ）</div>
+                    <div class="text-[15px] text-slate-500 mt-1">見積依頼フォーム</div>
+                  </button>
+
+                  <button onclick="showPage('privacy')" class="w-full text-left bg-slate-50 hover:bg-slate-100 border rounded-sm p-4 transition">
+                    <div class="font-bold text-[#163A8D]">Privacy Policy</div>
+                    <div class="text-[15px] text-slate-500 mt-1">個人情報保護方針</div>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t">
+                <button onclick="showPage('top')" class="text-sm font-bold text-slate-500 hover:text-[#163A8D] transition">
+                  <i class="fas fa-arrow-left mr-2"></i> ホームへ戻る
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-[#002060] text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 border-b border-[#001a4d] pb-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">                        
+                        <div class="mb-4">
+
+                            <!-- ロゴ -->
+                            <img src="pivotcore_logo.png" alt="PivotCoreロゴ" class="h-12 object-contain mb-1">
+
+                            <!-- 会社名 -->
+                            <p class="text-xs font-semibold text-slate-300 tracking-[0.1em] ml-2">
+                                株式会社ピボットコア
+                            </p>
+
+                        </div>
+                    </div>
+                    <p class="text-[15px] text-slate-400 leading-loose">
+                        半導体・電子部品の安定供給を通じ、<br>
+                        ものづくりの未来を支えるBtoB商社です。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold mb-6 border-b border-[#001a4d] pb-2 uppercase tracking-widest italic text-red-700">クイックリンク</h4>
+                    <ul class="text-[15px] space-y-3 text-slate-400">
+                        <li><button onclick="showPage('top')" class="hover:text-white transition">ホーム</button></li>
+                        <li><button onclick="showPage('business')" class="hover:text-white transition">事業内容</button></li>
+                        <li><button onclick="showPage('rfq')" class="hover:text-white transition">見積依頼 (RFQ)</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold mb-6 border-b border-[#001a4d] pb-2 uppercase tracking-widest italic text-red-700">事業所</h4>
+                    <address class="text-[15px] text-slate-400 not-italic space-y-2">
+                        <p>株式会社ピボットコア</p>
+                        <p>〒160-0023 東京都新宿区西新宿3-3-13<br>西新宿水間ビル6F</p>
+                        <p class="pt-2">TEL:<a href="tel:050-6863-4302" class="hover:text-white transition">050-6863-4302</a></p>
+                    </address>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-400 tracking-widest font-bold">
+                <p>&copy; 2026 PivotCore Inc. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-6">
+                    <button onclick="showPage('privacy')" class="hover:text-white transition cursor-pointer">Privacy Policy</button>
+                    <button onclick="showPage('sitemap')" class="hover:text-white transition cursor-pointer">Site Map</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ★ここだけ差し替え済み（送信形式を x-www-form-urlencoded に変更） -->
+    <script>
+        // ================================
+        // SPAページ切替 + ブラウザ戻る/進む対応
+        // ================================
+        function showPage(pageId, opts = {}) {
+            const { push = true } = opts;
+
+            // 表示切替
+            document.querySelectorAll('.page-transition').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+
+            // 履歴（URL）更新：#pageId を付ける
+            if (push) {
+                const newHash = `#${pageId}`;
+                if (location.hash !== newHash) {
+                    history.pushState({ pageId }, "", newHash);
+                } else {
+                    // 同じhashでも state を揃えたい場合は replaceState
+                    history.replaceState({ pageId }, "", newHash);
+                }
+            }
+        }
+
+        // a href="#" onclick="showPage(...)" のデフォルト遷移を一括で止める（HTMLを極力変更しない）
+        document.addEventListener("click", (e) => {
+            const a = e.target.closest("a");
+            if (!a) return;
+
+            const href = (a.getAttribute("href") || "").trim();
+            const oc = (a.getAttribute("onclick") || "");
+            if (href === "#" && oc.includes("showPage")) {
+                e.preventDefault();
+            }
+        });
+
+        // ブラウザ戻る/進むでページ復元
+        window.addEventListener("popstate", () => {
+            const hash = (location.hash || "").replace("#", "");
+            const pageId = hash || "top";
+            showPage(pageId, { push: false });
+        });
+
+        // 初回表示：hash があればそこを表示（例: /#privacy）
+        document.addEventListener("DOMContentLoaded", () => {
+            const hash = (location.hash || "").replace("#", "");
+            if (hash) showPage(hash, { push: false });
+            else {
+                // state を揃える（任意）
+                history.replaceState({ pageId: "top" }, "", "#top");
+            }
+        });
+
+        // ================================
+        // RFQ フォーム：前回入力保持（localStorage）
+        // ================================
+        const RFQ_STORAGE_KEY = "rfq_form_data_v1";
+
+        function saveRfqFormData() {
+            const form = document.getElementById("rfq-form");
+            if (!form) return;
+
+            const data = {};
+            form.querySelectorAll("input, textarea").forEach(el => {
+                if (!el.name) return;
+
+                // ▼▼▼ 同意チェックは保存しない ▼▼▼
+                if (el.id === "privacy-consent") return;
+                // ▲▲▲ ここまで ▲▲▲
+
+                if (
+                    el.type === "checkbox" ||
+                    el.type === "radio" ||
+                    el.type === "submit" ||
+                    el.type === "button"
+                ) return;
+
+                data[el.name] = el.value ?? "";
+            });
+
+            try {
+                localStorage.setItem(RFQ_STORAGE_KEY, JSON.stringify(data));
+            } catch (e) {
+                console.warn("localStorage save failed:", e);
+            }
+        }
+
+        function restoreRfqFormData() {
+            const form = document.getElementById("rfq-form");
+            if (!form) return;
+
+            let raw = null;
+            try { raw = localStorage.getItem(RFQ_STORAGE_KEY); } catch (_) {}
+            if (!raw) return;
+
+            let data = null;
+            try { data = JSON.parse(raw); } catch (_) { return; }
+            if (!data || typeof data !== "object") return;
+
+            Object.keys(data).forEach(name => {
+                if (name === "privacy_consent") return; // 念のため
+
+                const el = form.querySelector(`[name="${name}"]`);
+                if (el) el.value = data[name];
+            });
+        }
+
+        function clearRfqFormData() {
+            try { localStorage.removeItem(RFQ_STORAGE_KEY); } catch (_) {}
+        }
+
+        // 成功画面からフォームへ戻す（チェック状態に応じて復元/クリア）
+        function backToForm() {
+            const form = document.getElementById("rfq-form");
+            const successMsg = document.getElementById("success-msg");
+            const errorMsg = document.getElementById("error-msg");
+            const submitBtn = document.getElementById("submit-btn");
+            const keep = document.getElementById("keep-input");
+
+            // 画面切替
+            if (successMsg) successMsg.classList.add("hidden");
+            if (form) form.classList.remove("hidden");
+
+            // UIを送信前へ戻す
+            if (errorMsg) errorMsg.classList.add("hidden");
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+            }
+
+            // 同意チェックは常にOFFへ戻す（保持しない／法的同意の原則）
+            const consent = document.getElementById("privacy-consent");
+            if (consent) consent.checked = false;
+
+            // 復元 or クリア
+            if (keep && keep.checked) {
+                restoreRfqFormData();
+            } else {
+                if (form) form.reset();
+                clearRfqFormData();
+            }
+
+            // 念のためフォーム先頭へ
+            try { form?.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (_) {}
+        }
+
+        // ================================
+        // RFQフォーム送信（Workers）
+        // ================================
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("rfq-form");
+            if (!form) return;
+
+            const submitBtn = document.getElementById("submit-btn");
+            const errorMsg = document.getElementById("error-msg");
+            const successMsg = document.getElementById("success-msg");
+
+            // チェックボックスは必ずデフォルトOFF（ブラウザ復元対策）
+            const keep = document.getElementById("keep-input");
+            if (keep) keep.checked = false;
+
+            // 戻る/更新で bfcache 復元された場合もOFFに戻す
+            window.addEventListener("pageshow", () => {
+                const k = document.getElementById("keep-input");
+                if (k) k.checked = false;
+
+                const c = document.getElementById("privacy-consent");
+                if (c) c.checked = false;
+            });
+
+            // ── ▼ 送信ボタンclickで事前チェック（iOS Safari対策） ── 
+            submitBtn.addEventListener("click", (e) => {
+                const consent = document.getElementById("privacy-consent");
+                if (consent && !consent.checked) {
+                    e.preventDefault();          // フォーム送信を止める
+                    e.stopImmediatePropagation(); // submit イベントも発火させない
+                    alert("チェックボックスにチェックを入れて下さい。");
+                    try { consent.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (_) {}
+                    return;
+                }
+                // チェック済みなら何もしない → 通常の submit イベントへ進む
+            });
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+
+                // 希望納期：送信時のみ過去日付チェック（入力制限なし）
+                const deliveryEl = form.querySelector('[name="希望納期"]');
+                if (deliveryEl) {
+                    const v = (deliveryEl.value || "").trim();
+                    const normalized = v.replace(/\//g, "-");
+                    const m = normalized.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+
+                    if (m) {
+                        const y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+                        const selected = new Date(y, mo - 1, d);
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+                        selected.setHours(0, 0, 0, 0);
+
+                        // 無効日付（2/30等）対策
+                        if (
+                            selected.getFullYear() !== y ||
+                            selected.getMonth() !== mo - 1 ||
+                            selected.getDate() !== d
+                        ) {
+                            alert("希望納期をご確認下さい");
+                            if (deliveryEl.focus) deliveryEl.focus();
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+                            }
+                            return;
+                        }
+
+                        // 過去日付なら停止
+                        if (selected < today) {
+                            alert("希望納期をご確認下さい");
+                            if (deliveryEl.focus) deliveryEl.focus();
+                            if (submitBtn) {
+                                submitBtn.disabled = false;
+                                submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+                            }
+                            return;
+                        }
+                    }
+                }
+
+                // UI初期化
+                if (errorMsg) errorMsg.classList.add("hidden");
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+                }
+
+                try {
+                    const fd = new FormData(form);
+    
+                    // FormData -> JSON
+                    const payload = {};
+                    fd.forEach((v, k) => { payload[k] = String(v); });
+
+                    const res = await fetch("https://everlink-rfq.hideakitamura714.workers.dev/", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json; charset=UTF-8" },
+                        body: JSON.stringify(payload),
+                    });
+
+                    if (res.ok) {
+                        saveRfqFormData();
+    
+                        // 成功画面を出す直前に必ずデフォルトOFF
+                        const k = document.getElementById("keep-input");
+                        if (k) k.checked = false;
+
+                        form.classList.add("hidden");
+                        if (successMsg) successMsg.classList.remove("hidden");
+                    } else {
+                        let txt = "";
+                        try { txt = await res.text(); } catch (_) {}
+                        console.error("Worker response error:", res.status, txt);
+
+                        if (errorMsg) errorMsg.classList.remove("hidden");
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+                        }
+                    }
+                } catch (err) {
+                    console.error("Worker fetch exception:", err);
+
+                    if (errorMsg) errorMsg.classList.remove("hidden");
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
