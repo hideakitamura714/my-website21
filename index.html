@@ -71,7 +71,7 @@
                         </h2>
 
                         <p class="text-xl md:text-3xl font-bold mb-6 leading-snug opacity-95 text-shadow-lg">
-                          必要な部品を、必要なタイミングで。
+                          必要な部品を必要なタイミングで。
                         </p>
 
                         <p class="text-base md:text-lg mb-8 opacity-90 leading-loose font-medium">
@@ -485,7 +485,7 @@
                                 <div class="grid md:grid-cols-2 gap-8">
                                     <div>
                                         <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">メールアドレス <span class="text-red-700">*</span></label>
-                                        <input type="email" name="email" required class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50" placeholder="email@example.com">
+                                        <input type="email" name="email" id="email" required class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50" placeholder="email@example.com">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">
@@ -499,6 +499,25 @@
                                             placeholder="03-0000-0000">
                                     </div>
                                 </div>
+
+                                <!-- ▼▼▼ 追加：メールアドレス（確認用） ▼▼▼ -->
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">
+                                        メールアドレス（確認用） <span class="text-red-700">*</span>
+                                    </label>
+                                    <!-- name属性なし（送信データに含めない）。id のみで参照する -->
+                                    <input
+                                        type="text"
+                                        id="email-confirm"
+                                        required
+                                        autocomplete="new-password"
+                                        onpaste="return false;"
+                                        inputmode="email"
+                                        class="w-full border-b-2 border-slate-200 p-2 focus:border-red-700 focus:outline-none transition bg-slate-50"
+                                        placeholder="確認のためもう一度ご入力ください">
+                                    <p id="email-match-msg" class="text-xs mt-1 hidden"></p>
+                                </div>
+                                <!-- ▲▲▲ 追加ここまで ▲▲▲ -->
 
                                 <div>
                                     <label class="block text-xs font-bold text-slate-500 uppercase mb-2 tracking-widest">型番 <span class="text-red-700">*</span></label>
@@ -904,6 +923,21 @@
             }
         });
 
+        // ===== 追加：型番プリフィル（製品ページからの遷移時） =====
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(location.search);
+            const model = params.get("model");
+            if (model) {
+                const modelEl = document.querySelector('#rfq-form [name="型番"]');
+                if (modelEl && !modelEl.value) {
+                    modelEl.value = model;
+                }
+                // RFQセクションを表示
+                if (typeof showPage === "function") showPage("rfq", { push: false });
+            }
+        });
+        // ===== 追加ここまで =====
+
         // ================================
         // RFQ フォーム：前回入力保持（localStorage）
         // ================================
@@ -990,6 +1024,7 @@
                 restoreRfqFormData();
             } else {
                 if (form) form.reset();
+                if (typeof checkEmailMatch === "function") checkEmailMatch(); // 確認メッセージをリセット
                 clearRfqFormData();
             }
 
@@ -1003,6 +1038,54 @@
         document.addEventListener("DOMContentLoaded", () => {
             const form = document.getElementById("rfq-form");
             if (!form) return;
+
+            // ===== 追加：メールアドレス一致チェック =====
+            const emailEl = document.getElementById("email");
+            const emailConfirmEl = document.getElementById("email-confirm");
+            const emailMsg = document.getElementById("email-match-msg");
+
+            function checkEmailMatch() {
+                if (!emailEl || !emailConfirmEl || !emailMsg) return true;
+                const a = emailEl.value.trim();
+                const b = emailConfirmEl.value.trim();
+
+                // 確認欄が空のうちはメッセージを出さない
+                if (b === "") {
+                    emailMsg.classList.add("hidden");
+                    emailConfirmEl.setCustomValidity("");
+                    return false;
+                }
+                if (a === b) {
+                    emailMsg.textContent = "✓ メールアドレスが一致しました";
+                    emailMsg.className = "text-xs mt-1 text-green-600 font-bold";
+                    emailConfirmEl.setCustomValidity("");
+                    return true;
+                } else {
+                    emailMsg.textContent = "✗ メールアドレスが一致しません";
+                    emailMsg.className = "text-xs mt-1 text-red-600 font-bold";
+                    emailConfirmEl.setCustomValidity("メールアドレスが一致しません");
+                    return false;
+                }
+            }
+
+            if (emailEl && emailConfirmEl) {
+                emailEl.addEventListener("input", checkEmailMatch);
+                emailConfirmEl.addEventListener("input", checkEmailMatch);
+
+                // ── オートフィル対策 ──
+                // ブラウザがフォームをレンダリングした直後（～500ms後）に
+                // 確認欄へ値が入っていたらクリアする。
+                // type="text" + autocomplete="new-password" だけでは防げない
+                // ブラウザ（主にChrome）の積極的なオートフィルへの保険。
+                setTimeout(() => {
+                    if (emailConfirmEl.value !== "") {
+                        emailConfirmEl.value = "";
+                        emailMsg.classList.add("hidden");
+                        emailConfirmEl.setCustomValidity("");
+                    }
+                }, 500);
+            }
+            // ===== 追加ここまで =====
 
             const submitBtn = document.getElementById("submit-btn");
             const errorMsg = document.getElementById("error-msg");
@@ -1037,6 +1120,17 @@
             form.addEventListener("submit", async (e) => {
                 e.preventDefault();
 
+                // ===== 追加：送信時のメールアドレス一致バリデーション =====
+                if (!checkEmailMatch()) {
+                    alert("確認用メールアドレスが一致していません。ご確認ください。");
+                    if (emailConfirmEl && emailConfirmEl.focus) emailConfirmEl.focus();
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+                    }
+                    return;
+                }
+                // ===== 追加ここまで =====
 
                 // 希望納期：送信時のみ過去日付チェック（入力制限なし）
                 const deliveryEl = form.querySelector('[name="希望納期"]');
