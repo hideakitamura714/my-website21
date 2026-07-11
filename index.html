@@ -44,6 +44,7 @@
                 <ul class="flex space-x-8 text-sm font-bold text-slate-700">
                     <li><a href="#" onclick="showPage('top')" class="nav-link hover:text-[#163A8D] transition">ホーム</a></li>
                     <li><a href="#" onclick="showPage('business')" class="nav-link hover:text-[#163A8D] transition">事業内容</a></li>
+                    <li><a href="/products/" class="nav-link hover:text-[#163A8D] transition">型番検索</a></li>
                     <li><a href="#" onclick="showPage('rfq')" class="nav-link hover:text-[#163A8D] transition text-[#163A8D]">見積依頼 (RFQ)</a></li>
                 </ul>
                 <div class="hidden md:block">
@@ -97,13 +98,22 @@
                     <span class="font-bold text-[15px] mr-8 text-[#163A8D] flex items-center shrink-0">
                         <i class="fas fa-info-circle mr-2"></i> お知らせ / トピックス
                     </span>
-                    <div class="text-[15px] flex flex-col md:flex-row gap-2 md:gap-8 mt-2 md:mt-0">
-                        <span class="text-slate-500 italic">2026.3.20</span>
-                        <a href="#" onclick="showPage('news-yitoa')"
-                        class="hover:text-red-700 underline underline-offset-4">
-                        サイト公開のお知らせ
-                        </a>
-                    </div>
+                    <div class="text-[15px] flex flex-col gap-3 mt-2 md:mt-0">
+                        <div class="flex flex-col md:flex-row gap-2 md:gap-8">
+                            <span class="text-slate-500 italic">2026.7.16</span>
+                            <a href="#" onclick="showPage('news-products')"
+                            class="hover:text-red-700 underline underline-offset-4">
+                            型番検索（調達対応型番一覧）ページを公開しました
+                            </a>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-2 md:gap-8">
+                            <span class="text-slate-500 italic">2026.3.20</span>
+                            <a href="#" onclick="showPage('news-yitoa')"
+                            class="hover:text-red-700 underline underline-offset-4">
+                            サイト公開のお知らせ
+                            </a>
+                        </div>
+                    </div>                    
                 </div>
             </div>
 
@@ -242,6 +252,32 @@
             </div>
         </section>
 
+        <!-- 型番検索ページ公開のお知らせ -->
+        <section id="news-products" class="page-transition">
+            <div class="container mx-auto px-6 py-20 max-w-3xl">
+                <p class="text-slate-500 italic mb-2">2026.7.16</p>
+                <h2 class="text-2xl font-bold text-[#163A8D] mb-8 border-b-2 border-red-700 pb-4">型番検索（調達対応型番一覧）ページを公開しました</h2>
+                <div class="prose max-w-none text-slate-700 leading-loose space-y-6">
+                    <p>拝啓<br>時下ますますご清栄のこととお慶び申し上げます。平素は格別のご高配を賜り、厚く御礼申し上げます。</p>
+                    <p>この度、弊社公式Webサイトにおきまして、型番検索（調達対応型番一覧）ページを新たに公開いたしました。</p>
+                    <p>本ページでは、弊社にて調達対応が可能な半導体・電子部品の型番を一覧でご確認いただけます。型番による絞り込み検索に対応しており、お探しの製品をすばやく見つけていただくことが可能です。</p>
+                    <p>また、各製品の詳細ページからそのまま見積依頼（RFQ）にお進みいただける導線をご用意しておりますので、是非ご活用いただけますと幸いです。</p>
+                    <p>今後とも、変わらぬご愛顧を賜りますよう宜しくお願い申し上げます。</p>
+                    <p>敬具</p>
+                    <div class="mt-8">
+                        <a href="/products/" class="inline-block bg-red-700 hover:bg-red-800 text-white px-8 py-3 font-bold transition">
+                            型番検索ページへ <i class="fas fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <a href="#" onclick="showPage('top')" class="text-[#163A8D] hover:underline font-bold">
+                        <i class="fas fa-arrow-left mr-2"></i>トップページに戻る
+                    </a>
+                </div>
+            </div>
+        </section>
+        
         <!-- お知らせ詳細ページ -->
         <section id="news-yitoa" class="page-transition">
             <!-- ヘッダー -->
