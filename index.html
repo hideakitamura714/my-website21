@@ -24,6 +24,16 @@
         .nav-link:hover::after { width: 100%; }
         .text-shadow-lg { text-shadow: 0 4px 6px rgba(0,0,0,0.3); }
     </style>
+    <script>
+        // ハッシュ付きURL（例: /#business）で直接アクセスした場合、
+        // ホームが一瞬表示されるのを防ぐ
+        if (location.hash && location.hash !== '#top') {
+            document.documentElement.style.visibility = 'hidden';
+            document.addEventListener('DOMContentLoaded', function() {
+                document.documentElement.style.visibility = '';
+            });
+        }
+    </script>
 </head>
 <body class="bg-white text-slate-900 leading-relaxed">
 
