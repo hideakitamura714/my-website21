@@ -991,6 +991,60 @@
         });
         // ===== 追加ここまで =====
 
+        // ===== 追加：RFQ戻りリンク（製品ページからの遷移時） =====
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(location.search);
+            const refUrl = params.get("ref");
+            const model = params.get("model");
+            if (!refUrl) return;
+
+            function createBackLinkBar() {
+                var bar = document.createElement('div');
+                bar.id = 'pivotcore-backlink-bar';
+                bar.style.cssText = 'background:#f0f4ff; border-bottom:1px solid #c7d2fe; padding:10px 20px; text-align:left;';
+                var link = document.createElement('a');
+                link.href = refUrl;
+                link.style.cssText = 'color:#2563eb; text-decoration:none; font-size:14px; font-weight:500;';
+                link.innerHTML = '&#8592; ' + (model ? model + ' の' : '') + '製品ページに戻る';
+                link.onmouseover = function() { this.style.textDecoration = 'underline'; };
+                link.onmouseout = function() { this.style.textDecoration = 'none'; };
+                bar.appendChild(link);
+                return bar;
+            }
+
+            function insertBackLink() {
+                if (document.getElementById('pivotcore-backlink-bar')) return;
+                var rfqSection = document.getElementById('rfq');
+                if (rfqSection) {
+                    var bar = createBackLinkBar();
+                    rfqSection.insertBefore(bar, rfqSection.firstChild);
+                }
+            }
+
+            insertBackLink();
+
+            var observer = new MutationObserver(function() {
+                var rfqSection = document.getElementById('rfq');
+                if (rfqSection && rfqSection.classList.contains('active')) {
+                    insertBackLink();
+                    observer.disconnect();
+                }
+            });
+            observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+
+            // 下部の「ホームへ戻る」ボタンを製品ページへのリンクに変更
+            var rfqSection = document.getElementById('rfq');
+            if (rfqSection) {
+                var homeBtn = rfqSection.querySelector('button[onclick="showPage(\'top\')"]');
+                if (homeBtn) {
+                    homeBtn.onclick = function() { window.location.href = refUrl; };
+                    homeBtn.innerHTML = '<i class="fas fa-arrow-left mr-2"></i> ' +
+                        (model ? model + ' の' : '') + '製品ページに戻る';
+                }
+            }
+        });
+        // ===== 追加ここまで =====
+
         // ================================
         // RFQ フォーム：前回入力保持（localStorage）
         // ================================
